@@ -1,142 +1,122 @@
-# Taller de Pick & Place: preparar RobotStudio
+# Taller práctico de robótica industrial: pick & place con garra
 
-Taller **Mechanica Movet Mundum**, Escuela de Mecánica, UTEM (Santiago de Chile), noviembre de 2026.
-Prof. Dr. Julio Cesar Frantz (UNIFEBE, Brasil).
+[![Licencia: CC BY-NC-SA 4.0](https://img.shields.io/badge/Licencia-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es)
 
-En el taller hay una **estación de simulación**: el mismo robot de la Escuela, un ABB
-**IRB 1200-7/0.7** (7 kg de carga, 0,7 m de alcance), en el computador. Para no perder esos 30 minutos instalando, **cada equipo llega con un laptop listo**.
-Esta página explica cómo dejarlo listo en casa.
+> **¿Vienes a instalar RobotStudio para el taller?** → [Paso a paso para preparar el laptop](instalar-robotstudio.md)
 
-> **La meta:** llegar al taller con un IRB 1200 virtual que se mueve con el joystick del
-> FlexPendant virtual. Si al final de esta página ven **Motors On**, están listos.
+Taller práctico de 4 horas con **metodología activa de aprendizaje basado en proyectos (ABP)**:
+equipos de estudiantes programan **desde cero** un robot industrial ABB IRB 1200 con garra
+neumática, usando solo el FlexPendant, hasta que el robot lleva una pieza de un punto a otro, tres
+veces seguidas, sin dejarla caer.
 
-## Qué necesitan
+Creado para el evento **«Mechanica Movet Mundum»**, Escuela de Mecánica de la Universidad
+Tecnológica Metropolitana (**UTEM**, Santiago de Chile), noviembre de 2026, en el marco del Convenio
+Marco de Cooperación UNIFEBE–UTEM. Autor: **Prof. Dr. Julio Cesar Frantz**, Centro Universitário de
+Brusque (**UNIFEBE**, Brasil).
 
-- **Un laptop con Windows 10 u 11 (64 bits) por equipo.** RobotStudio no existe para Mac ni Linux.
-  En una Mac solo funciona dentro de una máquina virtual con Windows (Parallels): es posible, pero
-  lleva mucho más tiempo. Mejor que el equipo use un laptop con Windows.
-- **Permiso de administrador** para instalar programas. Los laptops de empresa a veces lo bloquean:
-  pruébenlo antes.
-- **Varios GB libres** en el disco y una conexión buena: la descarga es grande.
-- **Una cuenta ABB** (gratuita), para descargar el RobotWare en el paso 2.
-- **Un mouse.** Con el touchpad el joystick virtual es muy difícil.
-- Entre **30 y 60 minutos**, casi todo esperando la descarga.
+## El proyecto
 
-**Cuándo:** una o dos dias antes del taller. No antes de eso: si activan la prueba de 30 días,
-que no venza antes del taller. Si vence, RobotStudio sigue funcionando en la versión básica
-(gratuita), que alcanza para todo lo que hacemos.
+> **Pregunta motriz:** ¿cómo hacer que un robot industrial tome una pieza y la lleve a otro lugar,
+> tres veces seguidas, sin dejarla caer?
 
-## Paso 1: instalar RobotStudio
+| | |
+|---|---|
+| **Producto del equipo** | Un programa que funciona en el robot real: 5 puntos enseñados y la garra controlada con dos salidas digitales |
+| **Criterio de éxito** | Una pieza, de origen a destino, tres veces seguidas, sin caer |
+| **Quién aprende qué** | Cada integrante enseña **al menos un punto** al robot real |
+| **Duración** | 4 horas, hasta 20 estudiantes en 4 equipos |
+| **Requisitos** | Ninguno de robótica. Un laptop con Windows por equipo (para la simulación) |
 
-1. Entrar en la página de RobotStudio de ABB:
-   <https://new.abb.com/products/robotics/robotstudio/robotstudio-desktop>
-2. **Bajar la página hasta casi el final**, hasta el bloque **GET YOUR ROBOTSTUDIO® LICENSE**
-   (*"Click below to request a premium license or test RobotStudio Cloud or Desktop for 30
-   days"*). Ahí hay tres opciones: *Premium*, *RobotStudio® Cloud* y *RobotStudio® Desktop*.
-3. Clic en **RobotStudio® Desktop** (no *Cloud*): es la **prueba gratuita de 30 días**. Hacer el
-   **registro gratuito** que aparece y, al terminarlo, descargar el instalador.
-4. Descomprimir y ejecutar el `setup.exe`. Aceptar las opciones que vienen marcadas.
-5. Abrir RobotStudio. Si pregunta por la licencia, elegir la **prueba** (*trial*).
+## Cómo funciona el ABP en el taller
 
-## Paso 2: instalar el RobotWare 6 (el del controlador IRC5)
+Hay **un solo robot para todo el grupo**. En vez de una fila de espera, el taller se organiza en
+**rotación por estaciones**: mientras un equipo está en el robot, los otros tres hacen actividades
+que los preparan para su turno. El docente queda fijo en el robot, donde está el riesgo.
 
-El **RobotWare** es el software que corre dentro del controlador del robot. El robot de la UTEM
-tiene un controlador **IRC5**, que usa **RobotWare 6**. Las versiones nuevas de RobotStudio no lo
-traen instalado.
+| Elemento del ABP | Cómo aparece en el taller |
+|---|---|
+| **Problema auténtico** | El ciclo de pick & place de una celda industrial real, con un robot y una garra de verdad |
+| **Pregunta motriz** | Llevar la pieza tres veces seguidas sin caer: un criterio que el propio robot evalúa |
+| **Indagación sostenida** | Cuatro estaciones de 30 min que atacan el mismo problema desde ángulos distintos: robot real, observación, simulación y papel |
+| **Voz y decisión del equipo** | El equipo planifica quién enseña cada punto, quién pone cada bloque de la garra y apuesta el tiempo de ciclo |
+| **Roles y colaboración** | Cinco roles que rotan después de cada punto: Piloto, Copiloto, Seguridad, Proceso y Cronómetro |
+| **Crítica y revisión** | Cada equipo **observa al anterior** justo antes de su turno, con una lista de verificación; los errores de otros se vuelven aprendizaje |
+| **Producto público** | Ranking de tiempos, desafío en vivo (*¿y si quitamos el WaitTime?*) y demostración en automático del programa ganador |
+| **Reflexión** | Hoja de resultados (predicción contra realidad), cierre de los observadores y evaluación anónima |
 
-1. Arriba a la derecha, **Log In** con la cuenta ABB.
-2. Pestaña **Add-Ins** > **Gallery**.
-3. Buscar `RobotWare` e instalar un **RobotWare 6.x** (en las pruebas usamos el **6.16.04.00**).
+### Las cuatro estaciones
 
-> ⚠️ **No usen el RobotWare 7.x.** Es del controlador nuevo de ABB (OmniCore), que tiene otro
-> FlexPendant. Con el 7.x el robot virtual ya no se parece al de la UTEM.
+| Estación | Qué hace el equipo |
+|---|---|
+| **R: Robot** | Prueba la garra a mano, crea el programa en el FlexPendant (cada uno enseña un punto) y corre 3 ciclos |
+| **O: Observadores** | Alrededor del área del robot, miran al equipo que programa con una lista de verificación |
+| **S: Simulación** | El mismo programa en un IRB 1200 virtual en RobotStudio, con salidas virtuales para la garra |
+| **P: Papel** | "Robot humano": un estudiante ejecuta el programa con el cuerpo; después, cazar 5 errores en un programa |
 
-## Paso 3: crear el IRB 1200 virtual
+| | Ronda 1 | Ronda 2 | Ronda 3 | Ronda 4 |
+|---|---|---|---|---|
+| Equipo 1 | **R** | O | S | P |
+| Equipo 2 | P | **R** | O | S |
+| Equipo 3 | S | P | **R** | O |
+| Equipo 4 | O | S | P | **R** |
 
-1. **File > New > Station > Create** (una estación vacía).
-2. **Home > Virtual Controller > New Controller...** Dejar **Create New** marcado y llenar:
+## Material
 
-   | Campo | Valor |
-   |---|---|
-   | Name | `TallerUTEM` |
-   | Robot Model | **IRB 1200** |
-   | Variant | **`IRB 1200 7kg 0.7m`** (el de la UTEM) |
-   | RobotWare | **6.x** (la que instalaron en el paso 2) |
+### Nivel básico: el taller (todo en secuencia dentro de `main`)
 
-3. **OK.** Esperar 1 a 2 minutos, hasta que el indicador de abajo a la derecha quede **verde**.
-4. **File > Save As** > `TallerUTEM`. Esta es la estación que van a abrir en el taller.
+| Archivo | Qué es |
+|---|---|
+| [Presentación](nivel-basico/presentacion/taller-garra-utem.pdf) | Las 48 diapositivas del taller, en español |
+| [Cuaderno del taller](nivel-basico/cuaderno/cuaderno-del-taller.pdf) | Uno por equipo: portada, Hojas 1 a 6 (planificación, las 4 estaciones y resultados) |
+| [Tarjetas de roles](nivel-basico/cuaderno/tarjetas-de-roles.pdf) | Los 5 roles para recortar, una hoja por equipo |
+| [Marcas del piso](nivel-basico/cuaderno/marcas-del-piso.pdf) | HOME, ORIGEN y DESTINO para el robot humano |
+| [PickGarraBasico.mod](nivel-basico/rapid/PickGarraBasico.mod) | El programa completo, como queda en el FlexPendant |
+| [Guía del docente](nivel-basico/docente/agenda-4h.md) | Agenda de 4 h, los 30 min en el robot, roles, seguridad, lista previa y planes B |
+| [Instalar RobotStudio](instalar-robotstudio.md) | Tutorial para dejar el laptop listo en casa |
 
-<img src="img/1-new-controller.png" alt="Ventana Add New Controller llena" width="420">
+El solucionario del docente no se publica, para que el cuaderno siga sirviendo a otros grupos.
+Docentes que quieran usarlo pueden pedirlo al autor.
 
-> En esta imagen la variante es `5kg 0.9m`. Ustedes elijan **`7kg 0.7m`**, la del robot de la UTEM.
+### Nivel intermedio: rutinas
 
-Mover la vista 3D: rueda del mouse = zoom · **Ctrl + Shift + clic izquierdo** = girar ·
-**Ctrl + clic izquierdo** = desplazar.
+| Archivo | Qué es |
+|---|---|
+| [Rutinas en el FlexPendant](nivel-intermedio/rutinas-en-el-flexpendant.md) | Paso a paso: copiar el programa básico y escribir la garra **una sola vez** en `rCerrar` y `rAbrir`, llamadas con `ProcCall` |
+| [PickGarraIntermedio.mod](nivel-intermedio/rapid/PickGarraIntermedio.mod) | El programa intermedio |
 
-## Paso 4: el FlexPendant virtual en Manual
+**Nivel avanzado** (próximamente): programar en RAPID desde el computador, con `Offs`, bucles `FOR`,
+el TCP de la garra y la carga de la pieza (`GripLoad`).
 
-El **FlexPendant** es el control de mano del robot. El virtual es igual al real.
+## El robot y la garra
 
-1. **Controller > FlexPendant** (o **Ctrl + F5**).
-2. **El controlador virtual arranca en automático**, y así el joystick no mueve nada. Abrir el
-   **Control Panel**: es el **ícono pequeño a la izquierda del joystick** (no está en la cinta de
-   arriba). Girar la llave a **Manual**, la posición del medio.
-3. Clic en **Enable** (el dispositivo de habilitación virtual): queda presionado. Arriba del
-   FlexPendant tiene que decir **Motors On** (no *Guard Stop*).
+- **Robot:** ABB IRB 1200-7/0.7 (7 kg, 0,7 m de alcance), controlador IRC5, FlexPendant en inglés.
+- **Garra:** neumática, con válvula 5/2 **biestable** (dos bobinas, con memoria) en dos salidas
+  digitales: `ES_S02` **cierra** y `ES_S01` **abre**. Apagar una salida no mueve la garra: hay que
+  encender la otra. Nunca las dos en 1.
+- **Pieza:** un bloque de espuma rígida.
 
-<img src="img/2-control-panel.png" alt="Control Panel junto al joystick, con la llave y Enable" width="260">
+**Para usarlo con otro robot ABB:** cambiar los nombres de las salidas en el cuaderno y en los
+programas, y volver a enseñar los puntos. El resto del taller no cambia.
 
-> La llave virtual tiene 3 posiciones. La del robot de la UTEM tiene 2: automático y manual.
+## Seguridad
 
-## Paso 5: mover el robot
+El IRB 1200 es un **robot industrial, no un cobot**: no siente si alguien lo toca. El taller exige
+área de trabajo delimitada, manual reducido al 25 %, primera ejecución sin pieza y paso a paso, y
+una persona con la mano en la parada de emergencia. Este material **no reemplaza** la evaluación
+de riesgos de la celda ni la capacitación de seguridad de cada institución.
 
-1. Menú **ABB** (arriba a la izquierda) > **Jogging**.
-2. **Increment: None** y **Motion mode: Axis 1-3**.
-3. **Clic y arrastrar** sobre el joystick del FlexPendant virtual: el robot se mueve.
-4. Probar **Axis 4-6** y **Linear**. ¿Qué cambia?
+## Licencia
 
-<img src="img/3-jogging.png" alt="Pantalla Jogging con Increment None y Axis 1-3" width="560">
+© 2026 Julio Cesar Frantz (UNIFEBE). Este material está bajo la licencia
+[Creative Commons Atribución-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es).
+Texto completo en [LICENSE](LICENSE).
 
-## ✅ ¿Están listos?
+- **Pueden:** copiar, distribuir y adaptar el material para clases, talleres y cursos.
+- **Con estas condiciones:** citar al autor, **sin fines comerciales** y compartir las adaptaciones
+  con **la misma licencia**.
 
-- [ ] RobotStudio abre sin errores.
-- [ ] La estación `TallerUTEM` está guardada, con un **IRB 1200 7kg 0.7m** y **RobotWare 6.x**.
-- [ ] Arriba del FlexPendant dice **Manual** y **Motors On**.
-- [ ] El robot se mueve con el joystick.
+**Cómo citar:** FRANTZ, Julio Cesar. *Taller práctico de robótica industrial: pick & place con
+garra*. Brusque: UNIFEBE, 2026. Disponible en: <https://github.com/jcfrantz/taller-robotstudio-utem>.
 
-Si marcaron los cuatro, listo. El día del taller: **laptop cargado, cargador y mouse.**
-
-## Si algo no funciona
-
-| Síntoma | Causa probable | Solución |
-|---|---|---|
-| No aparece RobotWare 6.x en *New Controller* | Falta instalarlo | Paso 2: Add-Ins > Gallery, con la sesión ABB iniciada |
-| La Gallery está vacía o no deja instalar | Sesión ABB cerrada | **Log In** arriba a la derecha y abrir la Gallery otra vez |
-| El instalador no arranca o pide contraseña | Laptop sin permiso de administrador | Usar otro laptop del equipo |
-| El joystick no mueve el robot | Controlador en **automático** | Control Panel (ícono junto al joystick) > **Manual** |
-| Arriba dice *Guard Stop* | Enable sin presionar | Clic en **Enable** |
-| *"Waiting for motors on after emergency stop"* | Se presionó la parada de emergencia | Otro clic en la parada para soltarla; Control Panel > **Reset Emergency Stop** > **Motors On** |
-| El robot casi no se mueve | Increment activado | Jogging > Increment > **None** |
-| El joystick es difícil de usar | Touchpad | Usar un mouse. O: panel **Layout** > clic derecho en el robot > **Mechanism Joint Jog** (una barra por eje) |
-| Aviso *"No active license"* | La prueba venció o no se activó | No pasa nada: la versión básica alcanza para el taller |
-
-Si no lo logran, igual vengan: en el taller hay un pendrive con los instaladores y se resuelve ahí.
-Pero la instalación lleva tiempo, así que lo mejor es llegar con el laptop listo.
-
-## En el taller
-
-En la estación de simulación ustedes van a **abrir la estación `TallerUTEM`** y hacer en el
-FlexPendant virtual el mismo programa de pick & place que hacen en el robot real: cinco puntos,
-`MoveJ` y `MoveL`, `WaitTime`. Todo eso está en el cuaderno impreso del taller. No hace falta
-practicar antes; solo instalar.
-
-## Después del taller
-
-[`PickSinGarra.mod`](PickSinGarra.mod) es el programa completo del taller, para comparar con el de
-su equipo. Para cargarlo: pestaña **RAPID** > controlador > **T_ROB1** > clic derecho > **Load
-Module...**
-
----
-
-RobotStudio, RobotWare, FlexPendant e IRC5 son marcas de ABB. Este es material de un taller
-académico; no es un tutorial oficial de ABB.
+Los logos de la UTEM y de la UNIFEBE y las marcas ABB, RobotStudio, RobotWare, FlexPendant e IRC5
+pertenecen a sus dueños y **no** están incluidos en la licencia. Este no es material oficial de ABB.
